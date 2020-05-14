@@ -16,8 +16,6 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableEurekaClient
-@RibbonClient(name="micro-service-provider",configuration = TestConfiguration.class)
-@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,value = ExcludeFromComponentScan.class)})
 public class ConsumerRibbonApplication {
 
     public static void main(String[] args) {

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: micro-service-consumer-ribbon-without-eureka
+  security:
+    user:
+      name: dongxin
+      password: dx369*
+server:
+  port: 8093
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://dongxin:dx369*@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    appname: micro-service-consumer-ribbon-without-eureka
+
+ribbon:
+  eureka:
+    enabled: false
+micro-service-provider:
+  ribbon:
+    listOfServers: localhost:8081,localhost:8082
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
