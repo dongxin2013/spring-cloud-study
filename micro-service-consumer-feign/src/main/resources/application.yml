@@ -1,0 +1,16 @@
+spring:
+  security:
+    user:
+      name: dongxin
+      password: dx369*
+server:
+  port: 8090
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://dongxin:dx369*@localhost:8761/eureka/
+
+user:
+  userServicePath: http://localhost:8081/user/getUser/

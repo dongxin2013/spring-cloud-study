@@ -4,28 +4,16 @@ spring-cloud-study
 ### 环境依赖
     JDK1.8及以上版本
 ### 目录结构描述
-    ├── Readme.md                   // help
-    ├── app                         // 应用
-    ├── config                      // 配置
-    │   ├── default.json
-    │   ├── dev.json                // 开发环境
-    │   ├── experiment.json         // 实验
-    │   ├── index.js                // 配置控制
-    │   ├── local.json              // 本地
-    │   ├── production.json         // 生产环境
-    │   └── test.json               // 测试环境
-    ├── data
-    ├── doc                         // 文档
-    ├── environment
-    ├── gulpfile.js
-    ├── locales
-    ├── logger-service.js           // 启动日志配置
-    ├── node_modules
-    ├── package.json
-    ├── app-service.js              // 启动应用配置
-    ├── static                      // web静态资源加载
-    │   └── initjson
-    │       └── config.js         // 提供给前端的配置
-    ├── test
-    ├── test-service.js
-    └── tools
+    ├── micro-service-app1  // app1
+    ├── micro-service-app2  // app2
+    ├── micro-service-consumer  // 服务消费者
+    ├── micro-service-consumer-ribbon  // 服务消费者ribbon实现
+    ├── micro-service-consumer-ribbon-properties-customizing  // 服务消费者ribbon-配置文件实现
+    ├── micro-service-consumer-ribbon-without-eureka  // 服务消费者ribbon-（不依赖eureka）配置文件实现
+    ├── micro-service-consumer-feign  // 服务消费者feign实现
+    ├── micro-service-discovery-eureka // eureka 服务注册管理平台
+    ├── micro-service-provider  // 服务生产者
+    ├── micro-service-sso  // 单点登录认证系统
+    ├── .gitignore  //Git上传文件过滤配置
+    ├── pom.xml     //maven配置
+    └── README.md
