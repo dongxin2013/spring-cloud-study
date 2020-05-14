@@ -1,9 +1,9 @@
 spring-cloud-study
 ===========================
 
-###环境依赖
+### 环境依赖
     JDK1.8及以上版本
-###目录结构描述
+### 目录结构描述
     ├── Readme.md                   // help
     ├── app                         // 应用
     ├── config                      // 配置
@@ -29,6 +29,3 @@ spring-cloud-study
     ├── test
     ├── test-service.js
     └── tools
-
-
-
