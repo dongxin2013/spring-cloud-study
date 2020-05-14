@@ -1,16 +1,11 @@
 package com.dongxin.cloud.controller;
 
 import com.dongxin.cloud.entity.User;
+import com.dongxin.cloud.feignclient.UserFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
-import javax.annotation.Resource;
 
 /**
  * @author DongXin
@@ -18,18 +13,15 @@ import javax.annotation.Resource;
 @RestController
 public class MovieController {
 
-  private RestTemplate restTemplate;
+    private UserFeignClient userFeignClient;
 
-  @Autowired
-  public void setRestTemplate(RestTemplate restTemplate) {
-    this.restTemplate = restTemplate;
-  }
+    @Autowired
+    public void setUserFeignClient(UserFeignClient userFeignClient) {
+        this.userFeignClient = userFeignClient;
+    }
 
-  @Value("${user.userServicePath}")
-  private String userServicePath;
-
-  @GetMapping("/movie/{id}")
-  public User findById(@PathVariable Long id) {
-   return this.restTemplate.getForObject(this.userServicePath + id, User.class);
-  }
+    @GetMapping("/movie/{id}")
+    public User findById(@PathVariable String id) {
+        return userFeignClient.getUserById(id);
+    }
 }
