@@ -11,12 +11,14 @@
 
     <modules>
         <module>micro-service-discovery-eureka</module>
+        <module>micro-service-discovery-eureka-ha</module>
         <module>micro-service-provider</module>
         <module>micro-service-consumer</module>
         <module>micro-service-consumer-ribbon</module>
         <module>micro-service-consumer-ribbon-properties-customizing</module>
         <module>micro-service-consumer-ribbon-without-eureka</module>
         <module>micro-service-consumer-feign</module>
+        <module>micro-service-consumer-feign-properties-customizing</module>
         <module>micro-service-sso</module>
         <module>micro-service-app1</module>
         <module>micro-service-app2</module>
