@@ -1,6 +1,7 @@
 package com.dongxin.cloud.controller;
 
 import com.dongxin.cloud.entity.User;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -23,33 +24,22 @@ public class MovieController {
 
   private RestTemplate restTemplate;
 
-  private LoadBalancerClient loadBalancerClient;
-
   @Autowired
   public void setRestTemplate(RestTemplate restTemplate) {
     this.restTemplate = restTemplate;
   }
 
-  @Autowired
-  public void setLoadBalancerClient(LoadBalancerClient loadBalancerClient) {
-    this.loadBalancerClient = loadBalancerClient;
-  }
 
   @GetMapping("/movie/{id}")
+  @HystrixCommand(fallbackMethod = "findByIdFallback")
   public User findById(@PathVariable Long id) {
    return this.restTemplate.getForObject("http://micro-service-provider/user/getUser/" + id, User.class);
   }
 
-  @GetMapping("movie/test")
-  public String test(){
-    ServiceInstance serviceInstance = loadBalancerClient.choose("micro-service-provider");
-    System.out.println(serviceInstance.getServiceId()+":"+serviceInstance.getHost()+":"+serviceInstance.getPort());
-    return "1";
+  public User findByIdFallback(Long id){
+    User user = new User();
+    user.setId(0L);
+    return user;
   }
 
-
-  @GetMapping("/movie/list-all")
-  public List<User> getAll() {
-    return this.restTemplate.getForObject("http://micro-service-provider/user/list-all/", List.class);
-  }
 }

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: micro-service-consumer-ribbon-with-hystrix
+  security:
+    user:
+      name: dongxin
+      password: dx369*
+server:
+  port: 8096
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://dongxin:dx369*@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    appname: micro-service-consumer-ribbon-with-hystrix

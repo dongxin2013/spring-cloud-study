@@ -6,6 +6,7 @@ import com.dongxin.cloud.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -32,5 +33,10 @@ public class UserController {
     public User postUser(@RequestBody User user ){
         System.out.println(user);
         return user;
+    }
+
+    @GetMapping("/list-all")
+    public List<User> getList(){
+        return userService.list();
     }
 }
