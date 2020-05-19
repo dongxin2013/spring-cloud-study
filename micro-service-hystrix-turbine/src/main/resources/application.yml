@@ -1,0 +1,21 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: micro-service-hystrix-turbine
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://dongxin:dx369*@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 5
+    appname: micro-service-hystrix-turbine
+
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: micro-service-consumer-feign-with-hystrix,micro-service-consumer-ribbon-with-hystrix
+  clusterNameExpression: "'default'"
