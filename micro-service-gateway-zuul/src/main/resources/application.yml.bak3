@@ -15,19 +15,16 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
     appname: micro-service-gateway-zuul
-
 zuul:
   ignored-services: '*'
   routes:
-    micro-service-provider: /user/**
-    micro-service-consumer-ribbon-with-hystrix-propagation: /movie/**
-
+    user:
+      path: /user-url/**
+      serviceId : micro-service-provider
 ribbon:
   eureka:
-    enabled: true
+    enabled: false
+micro-service-provider:
+  ribbon:
+    listOfServers: http://localhost:8081/,http://localhost:8082/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: ["routes"]

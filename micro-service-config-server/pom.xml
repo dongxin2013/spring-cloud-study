@@ -9,9 +9,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>micro-service-gateway-zuul</artifactId>
-    <name>micro-service-gateway-zuul</name>
-    <description>micro-service-gateway-zuul</description>
+    <artifactId>micro-service-config-server</artifactId>
+    <name>micro-service-config-server</name>
+    <description>micro-service-config-server</description>
     <packaging>jar</packaging>
 
     <properties>
@@ -19,14 +19,13 @@
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
-
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
     </dependencies>
 </project>

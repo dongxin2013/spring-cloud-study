@@ -11,6 +11,7 @@
 
     <modules>
         <module>micro-service-gateway-zuul</module>
+        <module>micro-service-gateway-zuul-reg-exp</module>
         <module>micro-service-discovery-eureka</module>
         <module>micro-service-discovery-eureka-ha</module>
         <module>micro-service-provider</module>
@@ -26,6 +27,7 @@
         <module>micro-service-consumer-feign-properties-customizing-without-hystrix</module>
         <module>micro-service-hystrix-dashboard</module>
         <module>micro-service-hystrix-turbine</module>
+        <module>micro-service-config-server</module>
         <module>micro-service-sso</module>
         <module>micro-service-app1</module>
         <module>micro-service-app2</module>

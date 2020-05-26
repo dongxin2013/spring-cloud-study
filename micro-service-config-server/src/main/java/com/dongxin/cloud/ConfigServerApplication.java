@@ -2,18 +2,17 @@ package com.dongxin.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * @author DongXin
  */
 @SpringBootApplication
-@EnableZuulProxy
-public class ZuulApplication {
+@EnableConfigServer
+public class ConfigServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZuulApplication.class, args);
+        SpringApplication.run(ConfigServerApplication.class, args);
     }
 
 }

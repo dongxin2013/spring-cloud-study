@@ -9,9 +9,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>micro-service-gateway-zuul</artifactId>
-    <name>micro-service-gateway-zuul</name>
-    <description>micro-service-gateway-zuul</description>
+    <artifactId>micro-service-gateway-zuul-reg-exp</artifactId>
+    <name>micro-service-gateway-zuul-reg-exp</name>
+    <description>micro-service-gateway-zuul-reg-exp</description>
     <packaging>jar</packaging>
 
     <properties>
